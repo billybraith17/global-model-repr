@@ -223,10 +223,10 @@ class InstrumentedModel(torch.nn.Module):
         '''
         # Retain output before edits, if desired.
         if aka in self._retained:
-#             if self._detach_retained[aka]:
-#                 self._retained[aka] = x.detach()
-#             else:
-              self._retained[aka] = x
+            if self._detach_retained[aka]:
+                self._retained[aka] = x.detach()
+            else:
+                self._retained[aka] = x
         # Apply any edits requested.
         rule = self._editrule.get(aka, None)
         if rule is not None:
